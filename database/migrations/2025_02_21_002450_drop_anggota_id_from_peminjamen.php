@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('peminjamen', function (Blueprint $table) {
+             // Hapus Foreign Key Constraint
+             $table->dropForeign(['anggota_id']);
+             // Hapus Kolom anggota_id
+             $table->dropColumn('anggota_id');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('peminjamen', function (Blueprint $table) {
+            $table->foreignId('anggota_id')->constrained('anggotas')->onDelete('cascade');
+        });
+    }
+};
