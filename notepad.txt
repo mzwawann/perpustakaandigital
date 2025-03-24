@@ -1,0 +1,15 @@
+<readme>
+step to run perpustakaandigital project
+    1. localhost (laragon) on
+    2. terminal: npm run dev
+    3. terminal: php artisan serve
+
+schedule run (denda)
+    1. terminal: php artisan denda:update
+    2. terminal: php artisan schedule:run
+    3. terminal: php artisan schedulu:work
+
+push to github https://github.com/mzwawann/perpustakaandigital.git
+    1. terminal: git add .
+    2. terminal: git commit -m "commit example"
+    3. terminal: git push origin master
