@@ -20,11 +20,14 @@
             @foreach ($peminjaman->sortByDesc('tanggal_peminjaman') as $item)
                 <div class="bg-white shadow-md rounded-lg p-4 mb-4">
                     <div class="flex justify-between items-center">
-                        <div>
-                            <span class="text-gray-700 font-semibold">Peminjaman</span>
-                            <span class="ml-2 text-gray-700 font-semibold">
-                                {{ \Carbon\Carbon::parse($item->tanggal_peminjaman)->format('d M Y') }}
-                            </span>
+                        <div class="flex flex-col sm:flex-row sm:items-center">
+                            <span class="text-gray-500 text-sm lg:mr-3">ID {{ $item->id }}</span>
+                            <div>
+                                <span class="text-gray-700 font-semibold">Peminjaman</span>
+                                <span class="ml-2 text-gray-700 font-semibold">
+                                    {{ \Carbon\Carbon::parse($item->tanggal_peminjaman)->format('d M Y') }}
+                                </span>
+                            </div>
 
                             @php
                                 $statusColors = [
@@ -35,11 +38,10 @@
                             @endphp
 
                             <span
-                                class="ml-2 px-2 py-1 text-sm rounded-md {{ $statusColors[$item->status] ?? 'bg-gray-200 text-gray-800' }}">
+                                class="mt-1 sm:mt-0 sm:ml-2 px-2 py-1 text-sm rounded-md {{ $statusColors[$item->status] ?? 'bg-gray-200 text-gray-800' }}">
                                 {{ ucfirst($item->status) }}
                             </span>
                         </div>
-                        <span class="text-gray-500 text-sm">ID: {{ $item->id }}</span>
                     </div>
 
                     <div class="flex flex-col sm:flex-row mt-3">

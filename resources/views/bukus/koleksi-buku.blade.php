@@ -6,20 +6,23 @@
     </x-slot>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div class="flex justify-between">
-            <form action="{{ route('bukus.koleksi-buku') }}" method="GET" class="mb-4">
+        <div class="flex flex-col md:flex-row justify-between gap-2">
+            <form action="{{ route('bukus.koleksi-buku') }}" method="GET" class="mb-4 md:mb-0">
                 <input type="text" name="search" placeholder="Cari buku..."
-                    class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-auto"
                     value="{{ request('search') }}">
-                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">Cari</button>
+                <button type="submit"
+                    class="px-4 py-2 bg-blue-500 text-white rounded-lg mt-2 md:mt-0 md:ml-2 w-full md:w-auto">
+                    Cari
+                </button>
             </form>
 
             <form method="GET" action="{{ route('bukus.koleksi-buku') }}">
                 <select name="category" onchange="this.form.submit()"
-                    class="w-full md:w-auto border border-gray-300 rounded-lg focus:outline-none 
-                       focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition 
-                       bg-white dark:border-gray-600">
-                    <option value="">Pilih Kategori</option>
+                    class="w-full md:w-auto border border-gray-300 rounded-lg focus:outline-none mb-6
+                        focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition 
+                        bg-white dark:border-gray-600">
+                    <option value="">Semua Kategori</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}"
                             {{ request('category') == $category->id ? 'selected' : '' }}>

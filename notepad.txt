@@ -7,7 +7,7 @@ step to run perpustakaandigital project
 schedule run (denda)
     1. terminal: php artisan denda:update
     2. terminal: php artisan schedule:run
-    3. terminal: php artisan schedulu:work
+    3. terminal: php artisan schedule:work
 
 push to github https://github.com/mzwawann/perpustakaandigital.git
     1. terminal: git add .

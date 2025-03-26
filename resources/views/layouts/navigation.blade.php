@@ -102,7 +102,20 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
+    <div x-show="open" x-transition
+        class="fixed top-0 left-0 w-full max-h-screen bg-white z-50 sm:hidden flex flex-col shadow-md bg-opacity-50 backdrop-blur-md"
+        style="height: fit-content; max-height: 80vh; overflow-y: auto;">
+
+        <div class="p-4 border-b flex justify-between items-center">
+            <span class="text-xl font-bold text-gray-800">Menu</span>
+            <button @click="open = false" class="text-gray-600">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
         <div class="pt-2 pb-3 space-y-1">
             @if (Route::has('login'))
                 @auth
@@ -120,7 +133,7 @@
                     </x-responsive-nav-link>
                 @else
                     <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('welcome') }}
+                        {{ __('Welcome') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('bukus.koleksi-buku')" :active="request()->routeIs('bukus.koleksi-buku')">
                         {{ __('Buku') }}
@@ -140,7 +153,7 @@
                         <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                         <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                     </div>
-                    <div class="mt-3 space-y-1">
+                    <div class="mt-3 space-y-1 pb-8">
                         <x-responsive-nav-link :href="route('settings')">
                             {{ __('Profile') }}
                         </x-responsive-nav-link>
@@ -157,7 +170,7 @@
                         </form>
                     </div>
                 @else
-                    <div class="px-4 py-2">
+                    <div class="px-4 py-2 pb-8">
                         <a href="{{ route('login') }}"
                             class="capitalize bg-gray-800 hover:bg-gray-700 duration-200 p-2 rounded-md text-white font-bold">login</a>
                     </div>

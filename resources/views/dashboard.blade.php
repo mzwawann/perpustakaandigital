@@ -3,7 +3,7 @@
     <section id="hero" class="relative bg-cover bg-center h-screen flex items-center mb-8"
         style="background-image: url('images/PerpustakaanMuka.jpg');">
         <div class="container mx-auto lg:text-left px-6 max-w-7xl sm:px-6 lg:px-8 py-6">
-            <h1 class="text-8xl font-bold">
+            <h1 class="text-6xl lg:text-8xl font-bold">
                 Welcome to <span class="text-blue-700">PerpusKu</span>
             </h1>
             <div class="flex space-x-4 mt-6">
@@ -73,7 +73,7 @@
         </div>
 
         <!-- Right: Content -->
-        <div class="w-full md:w-1/2 md:pl-12">
+        <div class="w-full md:w-1/2 md:pl-12 mt-6">
             <span class="text-blue-500 font-semibold uppercase">About</span>
             <h2 class="text-3xl font-bold text-gray-800 mt-2">Find Out More <span class="text-blue-500">About Us</span>
             </h2>

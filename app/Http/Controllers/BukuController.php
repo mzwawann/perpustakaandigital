@@ -11,7 +11,15 @@ class BukuController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Buku::with('reviews'); // Ambil relasi review
+        // Ambil relasi review  
+
+        // $query = Buku::with('reviews'); 
+
+        $query = Buku::with([
+            'reviews' => function ($query) {
+                $query->where('is_hidden', false)->with('user');
+            }
+        ]);
 
         if ($request->has('search')) {
             $search = $request->search;
