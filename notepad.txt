@@ -1,8 +1,8 @@
 <readme>
 step to run perpustakaandigital project
     1. localhost (laragon) on
-    2. terminal: npm run dev
-    3. terminal: php artisan serve
+    2. terminal: npm run dev |  npm run dev -- --host 192.168.2.105
+    3. terminal: php artisan serve |  php artisan serve --host 192.168.2.105 --port 8080 (ganti host dengan ip komputer)
 
 schedule run (denda)
     1. terminal: php artisan denda:update
