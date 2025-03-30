@@ -10,12 +10,12 @@ export default defineConfig({
         }),
         // tailwindcss(),
     ],
-    // server: {
-    //     host: true,  // Memungkinkan akses dari jaringan lokal
-    //     port: 5173,  // Port default Vite (bisa diganti)
-    //     strictPort: true,  // Pastikan port tidak berubah
-    //     hmr: {
-    //         host: '192.168.2.105', // Ganti dengan IP lokal komputer kamu
-    //     }
-    // }
+    server: {
+        host: true,  // Memungkinkan akses dari jaringan lokal
+        port: 5173,  // Port default Vite (bisa diganti)
+        strictPort: true,  // Pastikan port tidak berubah
+        hmr: {
+            host: '192.168.2.105', // Ganti dengan IP lokal komputer kamu
+        }
+    }
 });

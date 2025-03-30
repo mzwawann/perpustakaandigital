@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Storage;
 
 class Buku extends Model
 {
@@ -21,6 +22,12 @@ class Buku extends Model
 
         static::creating(function ($buku) {
             $buku->id = (int) (now()->format('Ymd') . rand(10000000, 99999999));
+        });
+
+        static::deleting(function ($buku) {
+            if ($buku->cover) {
+                Storage::delete('uploads/covers/' . $buku->cover);
+            }
         });
     }
     
